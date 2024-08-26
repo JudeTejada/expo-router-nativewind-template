@@ -53,13 +53,7 @@ export function OnboardingScreen() {
       }, 200); // Delay of 400ms before scrolling
     }
   };
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleScroll('right');
-    }, 1000); // Change slide every 5 seconds
 
-    return () => clearInterval(interval);
-  }, []);
   return (
     <View className='relative h-screen'>
       <View
@@ -106,9 +100,7 @@ export function OnboardingScreen() {
         </BlurView>
       </View>
 
-      <ScrollView pagingEnabled horizontal ref={scrollViewRef}
-      s
-      >
+      <ScrollView pagingEnabled horizontal ref={scrollViewRef}>
         {mockData.map((item, index) => (
           <View key={index} className='relative w-screen flex-1'>
             <OnboardingItem {...item} index={index} />
